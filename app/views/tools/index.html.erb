@@ -1,1 +1,13 @@
-<h1>Welcome to the index page</h1>
+<h1>Tools in your area</h1>
+
+<div class="container">
+  <div class="cards">
+    <% @tools.each do |tool| %>
+    <div class="tool-card">
+      <%= tool.name %> <br>
+      <%= tool.description %> <br>
+      £<%= tool.price %> per hour
+    </div>
+    <% end %>
+  </div>
+</div>
