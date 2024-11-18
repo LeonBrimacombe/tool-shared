@@ -1,13 +1,16 @@
-<h1>Tools in your area</h1>
 
-<div class="container">
-  <div class="cards">
+<h1>Welcome to ToolShare</h1>
+
+<ul class="list_group">
+  <% if @tools.empty? %>
+    <p>No tools available</p>
+  <% else %>
     <% @tools.each do |tool| %>
-    <div class="tool-card">
-      <%= tool.name %> <br>
-      <%= tool.description %> <br>
-      £<%= tool.price %> per hour
-    </div>
+      <%= link_to tool_path(tool) do%>
+        <li class="list-style">
+          <%= tool.name %>
+        </li>
+      <% end %>
     <% end %>
-  </div>
-</div>
+  <% end %>
+</ul>
