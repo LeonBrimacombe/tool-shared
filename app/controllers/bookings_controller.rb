@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     @booking.tool = @tool
     if @booking.save!
-      redirect_to new_tool_booking(@tool)
+      redirect_to tool_booking(@tool)
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,6 +25,7 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @tool = Tool.find(params[:tool_id])
   end
 
   def update
@@ -43,6 +44,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    param.require(:booking).permit(:start_date, :end_date, :price)
+    params.require(:booking).permit(:start_date, :end_date, :price)
   end
 end
