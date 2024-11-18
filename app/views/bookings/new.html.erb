@@ -1,10 +1,12 @@
-<h1>New booking for <%= @tool.name.upcase %></h1>
-<p><%= @tool.description %></p>
-<p> Renting for <strong>£<%= @tool.price %> </strong>per hour</p>
+<div class="container">
+  <h1>New booking for <%= @tool.name.upcase %></h1>
+  <p><%= @tool.description %></p>
+  <p> Renting for <strong>£<%= @tool.price %> </strong>per hour</p>
 
 
- <%= simple_form_for [@tool, @booking] do |f| %>
-   <%= f.input :start_date %>
-   <%= f.input :end_date %>
-   <%= f.submit class: 'btn-submit mt-3'%>
- <% end %>
+   <%= simple_form_for [@tool, @booking] do |f| %>
+     <%= f.input :start_date %>
+     <%= f.input :end_date %>
+     <%= f.submit class: 'btn-submit mt-3'%>
+   <% end %>
+</div>
