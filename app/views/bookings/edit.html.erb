@@ -1,0 +1,9 @@
+<h1>Bookings#edit</h1>
+<p>Find me in app/views/bookings/edit.html.erb</p>
+
+<%= simple_form_for(@booking) do |f| %>
+   <%= f.input :start_date %>
+   <%= f.input :end_date %>
+   <%= f.input :price %>
+  <%= f.submit class: 'btn-submit mt-3'%>
+<% end %>

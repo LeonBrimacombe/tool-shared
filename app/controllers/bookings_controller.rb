@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     @booking.tool = @tool
     if @booking.save!
-      redirect_to new_tool_booking(:tool_id)
+      redirect_to new_tool_booking(@tool)
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,15 +28,16 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @tool = Tool.find(params[:tool_id])
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to
+    redirect_to tool_booking(@tool, @booking)
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to
+    redirect_to tool_bookings
   end
 
   private
