@@ -42,7 +42,9 @@ test_user.save
 10.times do
   user = User.new(
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    image: Faker::Avatar.image,
+    username: Faker::Internet.user_name
   )
   user.save
 end
@@ -54,16 +56,39 @@ puts "Cleaning tools DB"
 
 puts "Seeding user DB"
 
+url = "https://www.productionequipment.com/hand-tools/tradesmans-tools.html"
+
+html_file = URI.parse(url).read
+html_doc = Nokogiri::HTML.parse(html_file)
+
+tool_images = html_doc.search(".product-image-photo").map do |element|
+  element.attribute("src").value
+end
+
+categories = [
+  "Batteries, Chargers and Power Supplies",
+  "Power Tools",
+  "Outdoor Power Equipment",
+  "Sewage and Drain Cleaning",
+  "Lighting",
+  "Instruments",
+  "Storage",
+  "Personal Protective Equipment",
+  "Heated Work Wear and Clothing",
+  "Hand Tools"]
+
 20.times do
   tool = Tool.new(
     name: Faker::Appliance.equipment,
     description: Faker::Appliance.brand,
-    price: rand(100..1000),
+    price: rand(15..150),
     available_from: Time.now,
     available_until: (Time.now + 1),
-    user: User.all.sample
+    user: User.all.sample,
+    image: tool_images.sample,
+    address: Faker::Address,
+    category: categories.sample,
   )
-  puts tool
   tool.save
 end
 
