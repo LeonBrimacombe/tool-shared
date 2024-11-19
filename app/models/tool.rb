@@ -5,4 +5,18 @@ class Tool < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
+
+  CATEGORIES = [
+    'Batteries',
+    'Chargers and Power Supplies',
+    'Power Tools',
+    'Outdoor Power Equipment',
+    'Sewage and Drain Cleaning',
+    'Lighting',
+    'Instruments',
+    'Storage',
+    'Personal Protective Equipment',
+    'Heated Work Wear and Clothing',
+    'Hand Tools'
+  ]
 end
