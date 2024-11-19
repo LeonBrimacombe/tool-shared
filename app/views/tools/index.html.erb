@@ -7,9 +7,12 @@
   <% else %>
     <% @tools.each do |tool| %>
       <%= link_to tool_path(tool) do%>
-        <li class="list-style">
-          <%= tool.name %>
-        </li>
+        <div class="card">
+          <img src="<%= tool.image %>" style="width:200px;" alt="<%= tool.name %>">
+          <%= tool.name %> <br>
+          £<%= tool.price %> per hour <br>
+          <%= tool.address %> <br>
+        </div>
       <% end %>
     <% end %>
   <% end %>

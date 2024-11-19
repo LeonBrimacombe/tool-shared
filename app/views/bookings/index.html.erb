@@ -5,12 +5,14 @@
     <% @bookings.each do |booking| %>
     <div class="booking-card">
       <h5>Booking</h5>
+      <img src="<%= booking.tool.image %>" style="width:200px;" alt="<%= booking.tool.name %>"> <br>
+      <%= booking.tool.name %> <br>
       Start date: <%= booking.start_date %> <br>
       End date: <%= booking.end_date %> <br>
       Price: £<%= booking.price %> per hour <br>
     </div>
-    <%= link_to "View booking", tool_booking_path(booking.tool_id, booking.id) %>
-    <%= link_to "Edit booking", edit_tool_booking_path(booking.tool_id, booking.id) %>
+    <%= link_to "View booking", tool_booking_path(booking.tool_id, booking.id) %> <br>
+    <%= link_to "Edit booking", edit_tool_booking_path(booking.tool_id, booking.id) %> <br>
     <% end %>
   </div>
 </div>
