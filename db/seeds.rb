@@ -58,7 +58,7 @@ puts "Seeding user DB"
   tool = Tool.new(
     name: Faker::Appliance.equipment,
     description: Faker::Appliance.brand,
-    price: rand(100..1000),
+    price: rand(100..10000),
     available_from: Time.now,
     available_until: (Time.now + 1),
     user: User.all.sample
@@ -70,7 +70,7 @@ end
 test_tool = Tool.new(
   name: Faker::Appliance.equipment,
   description: Faker::Appliance.brand,
-  price: rand(100..1000),
+  price: rand(100..10000),
   available_from: Time.now,
   available_until: (Time.now + 1),
   user: test_user
