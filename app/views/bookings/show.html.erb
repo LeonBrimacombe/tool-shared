@@ -3,8 +3,10 @@
 
 <h1>Booking Show</h1>
 
-<%= @booking.tool.name %> <br>
-<%= @booking.start_date %> <br>
-<%= @booking.end_date %> <br>
+<div class="container">
+  <%= @booking.tool.name %> <br>
+  <%= @booking.start_date %> <br>
+  <%= @booking.end_date %> <br>
+</div>
 
 <%= link_to "Edit booking", edit_tool_booking_path(@booking.tool_id, @booking.id) %>
