@@ -3,10 +3,6 @@
   <p><%= @tool.description %></p>
   <p> Renting for <strong>£<%= @tool.price %> </strong>per hour</p>
 
+  <%= render "form" %>
 
-   <%= simple_form_for [@tool, @booking] do |f| %>
-     <%= f.input :start_date %>
-     <%= f.input :end_date %>
-     <%= f.submit class: 'btn-submit mt-3'%>
-   <% end %>
 </div>

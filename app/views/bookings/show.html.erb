@@ -1,1 +1,10 @@
-<h1>Current bookings</h1>
+<%= link_to "Back to bookings", bookings_path %>
+
+
+<h1>Booking Show</h1>
+
+<%= @booking.tool.name %> <br>
+<%= @booking.start_date %> <br>
+<%= @booking.end_date %> <br>
+
+<%= link_to "Edit booking", edit_tool_booking_path(@booking.tool_id, @booking.id) %>
