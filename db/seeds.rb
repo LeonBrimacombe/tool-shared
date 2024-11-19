@@ -104,7 +104,7 @@ test_tool = Tool.new(
   available_until: (Time.now + 1),
   user: test_user,
   image: tool_images.sample,
-  address: Faker::Address,
+  address: Faker::Address.street_address,
   category: categories.sample
 )
 test_tool.save

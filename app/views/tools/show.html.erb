@@ -2,9 +2,14 @@
 
 <p>This page will come alive when UI design is available</p>
 <h1><%= @tool.name %></h1>
+
+<img src="<%= @tool.image %>" style="width:200px;" alt="<%= @tool.name %>">
+
+<p><%= @tool.category %></p>
 <p><%= @tool.description %></p>
 <p><%= @tool.price %></p>
 <p><%= @tool.available_from %></p>
 <p><%= @tool.available_until %></p>
+<p><%= @tool.address %></p>
 
 <%= link_to 'Add Booking', new_tool_booking_path(@tool) %> |
