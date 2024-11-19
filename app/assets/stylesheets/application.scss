@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-color: $background-gray;
+}
+
+h1 {
+  font-family: 'Koulen';
+  font-size: 4vw;
+}

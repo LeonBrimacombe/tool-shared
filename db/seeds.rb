@@ -89,7 +89,7 @@ categories = [
     available_until: (Time.now + 1),
     user: User.all.sample,
     image: tool_images.sample,
-    address: Faker::Address,
+    address: Faker::Address.street_address,
     category: categories.sample
   )
   puts tool
