@@ -35,7 +35,9 @@ User.destroy_all
 puts "Seeding user DB"
 test_user = User.new(
   email: "test@test.com",
-  password: "123456"
+  password: "123456",
+  image: Faker::Avatar.image,
+  username: Faker::Internet.user_name
 )
 test_user.save
 
@@ -98,7 +100,11 @@ test_tool = Tool.new(
   price: rand(100..1000),
   available_from: Time.now,
   available_until: (Time.now + 1),
-  user: test_user
+  user: test_user,
+  image: tool_images.sample,
+  address: Faker::Address,
+  category: categories.sample,
+
 )
 test_tool.save
 
@@ -135,7 +141,8 @@ test_booking.save
 puts "Seeded bookings DB"
 puts "Seeding has been completed!"
 puts "IMPORTANT: Test user login below..."
-puts "username: test@test.com"
+puts "email: test@test.com"
+puts "username: #{test_user.username}"
 puts "password: 123456"
 
 # Faker::Appliance.equipment
