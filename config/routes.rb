@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :tools, only: %i[index show] do
     resources :bookings
   end
+
+  resources :bookings, only: %i[index show]
 end
