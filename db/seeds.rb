@@ -35,14 +35,18 @@ User.destroy_all
 puts "Seeding user DB"
 test_user = User.new(
   email: "test@test.com",
-  password: "123456"
+  password: "123456",
+  image: Faker::Avatar.image,
+  username: Faker::Internet.user_name
 )
 test_user.save
 
 10.times do
   user = User.new(
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    image: Faker::Avatar.image,
+    username: Faker::Internet.user_name
   )
   user.save
 end
@@ -54,6 +58,28 @@ puts "Cleaning tools DB"
 
 puts "Seeding user DB"
 
+url = "https://www.productionequipment.com/hand-tools/tradesmans-tools.html"
+
+html_file = URI.parse(url).read
+html_doc = Nokogiri::HTML.parse(html_file)
+
+tool_images = html_doc.search(".product-image-photo").map do |element|
+  element.attribute("src").value
+end
+
+categories = [
+  "Batteries, Chargers and Power Supplies",
+  "Power Tools",
+  "Outdoor Power Equipment",
+  "Sewage and Drain Cleaning",
+  "Lighting",
+  "Instruments",
+  "Storage",
+  "Personal Protective Equipment",
+  "Heated Work Wear and Clothing",
+  "Hand Tools"]
+
+
 20.times do
   tool = Tool.new(
     name: Faker::Appliance.equipment,
@@ -61,7 +87,10 @@ puts "Seeding user DB"
     price: rand(100..10000),
     available_from: Time.now,
     available_until: (Time.now + 1),
-    user: User.all.sample
+    user: User.all.sample,
+    image: tool_images.sample,
+    address: Faker::Address,
+    category: categories.sample
   )
   puts tool
   tool.save
@@ -73,7 +102,10 @@ test_tool = Tool.new(
   price: rand(100..10000),
   available_from: Time.now,
   available_until: (Time.now + 1),
-  user: test_user
+  user: test_user,
+  image: tool_images.sample,
+  address: Faker::Address,
+  category: categories.sample
 )
 test_tool.save
 
@@ -110,7 +142,8 @@ test_booking.save
 puts "Seeded bookings DB"
 puts "Seeding has been completed!"
 puts "IMPORTANT: Test user login below..."
-puts "username: test@test.com"
+puts "email: test@test.com"
+puts "username: #{test_user.username}"
 puts "password: 123456"
 
 # Faker::Appliance.equipment
