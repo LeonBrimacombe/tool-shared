@@ -7,7 +7,9 @@
     <% else %>
       <% @bookings.each do |booking| %>
         <div class="card-booking">
-          <img src="<%= booking.tool.image %>" style="width:200px;" alt="<%= booking.tool.name %>">
+         <% booking.tool.images.each do |image| %>
+        <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
+      <% end %> <br>
           <div class="card-booking-info">
             Start date: <%= booking.start_date %>
             End date: <%= booking.end_date %>
