@@ -2,7 +2,9 @@
 <div class="container backing">
   <h2>Booking confirmation</h2>
   <div class="card-booking">
-    <img src="<%= @booking.tool.image %>" style="width:200px;" alt="<%= @booking.tool.name %>">
+    <% if @booking.tool.images.attached? %>
+      <%= cl_image_tag @booking.tool.images.first.key %>
+    <% end %>
     <div class="card-booking-info">
       <h3><%= @booking.tool.name %></h3>
       <p>listed by <strong><%= @booking.tool.user.username %></strong></p>
