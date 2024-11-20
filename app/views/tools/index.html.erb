@@ -1,6 +1,8 @@
 
 <h1>Welcome to ToolShare</h1>
 
+<%= link_to "Add A Tool", user_signed_in? ? new_tool_path : new_user_session_path %>
+
 <ul class="list_group">
   <% if @tools.empty? %>
     <p>No tools available</p>
