@@ -5,7 +5,9 @@
     <% @bookings.each do |booking| %>
     <div class="card">
       <h5><%= booking.tool.name.upcase %> Booking</h5>
-      <img src="<%= booking.tool.image %>" style="width:200px;" alt="<%= booking.tool.name %>"> <br>
+      <% booking.tool.images.each do |image| %>
+        <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
+      <% end %> <br>
       Start date: <%= booking.start_date %> <br>
       End date: <%= booking.end_date %> <br>
       Price: £<%= booking.price %> per hour <br>
