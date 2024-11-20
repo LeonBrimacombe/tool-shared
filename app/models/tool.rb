@@ -22,7 +22,4 @@ class Tool < ApplicationRecord
     'Heated Work Wear and Clothing',
     'Hand Tools'
   ]
-
-
-
 end
