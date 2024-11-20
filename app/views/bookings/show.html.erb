@@ -1,12 +1,15 @@
  <%= link_to "Back to bookings", bookings_path %>
 <div class="container backing">
+  <h2>Booking confirmation</h2>
   <div class="card-booking">
     <img src="<%= @booking.tool.image %>" style="width:200px;" alt="<%= @booking.tool.name %>">
     <div class="card-booking-info">
-      Start date: <%= @booking.start_date %>
-      End date: <%= @booking.end_date %>
-      Price: £<%= @booking.tool.price %> per hour
-      <i class="fa-solid fa-location-pin location"></i><%= @booking.tool.address %>
+      <h3><%= @booking.tool.name %></h3>
+      <p>listed by <strong><%= @booking.tool.user.username %></strong></p>
+      <p>Collection date: <strong><%= @booking.start_date %></strong></p>
+      <p>End date: <%= @booking.end_date %> </p>
+      <p>Price: <strong>£<%= @booking.tool.price %></strong></p>
+      <p><i class="fa-solid fa-location-pin location"></i> <%= @booking.tool.address %></p>
       <%= link_to "Edit booking", edit_tool_booking_path(@booking.tool_id, @booking.id), class:"btn-primary-sm" %>
     </div>
   </div>

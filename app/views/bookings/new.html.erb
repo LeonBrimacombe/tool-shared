@@ -1,8 +1,8 @@
 <div class="container backing">
   <h1>New booking for <%= @tool.name.upcase %></h1>
   <p><%= @tool.description %></p>
-  <p> Renting for <strong>£<%= @tool.price %> </strong>per hour</p>
+  <p> Renting for <strong>£<%= @tool.price %> </strong></p>
+  <p><%= @tool.address %></p>
 
   <%= render "form" %>
-
 </div>
