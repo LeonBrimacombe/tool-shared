@@ -15,7 +15,7 @@ body {
   background-color: $background-gray;
 }
 
-h1, h2, h3 {
+h1, h2, h3, a {
   font-family: 'Koulen';
 }
 
@@ -42,4 +42,11 @@ a {
 
 .backing {
   background-color: $accent-orange;
+}
+
+.btn-primary {
+  background-color: black;
+  border-radius: 24px;
+  padding: 8px 64px;
+  margin-bottom: 16px;
 }
