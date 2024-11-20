@@ -1,15 +1,17 @@
-<h1>Show Page</h1>
+ <%= link_to "Back to tools", tools_path %>
 
-<p>This page will come alive when UI design is available</p>
-<h1><%= @tool.name %></h1>
-
-<img src="<%= @tool.image %>" style="width:200px;" alt="<%= @tool.name %>">
-
-<p><%= @tool.category %></p>
-<p><%= @tool.description %></p>
-<p><%= @tool.price %></p>
-<p><%= @tool.available_from %></p>
-<p><%= @tool.available_until %></p>
-<p><%= @tool.address %></p>
-
-<%= link_to 'Add Booking', new_tool_booking_path(@tool) %> |
+<div class="container backing">
+  <div class="card-tool">
+    <h1><%= @tool.name %></h1>
+    <img src="<%= @tool.image %>" style="width:500px;" alt="<%= @tool.name %>">
+    <div class="card-tool-info">
+      <p><strong>Category</strong> <%= @tool.category %></p>
+      <p><%= @tool.description %></p>
+      <p><%= @tool.price %></p>
+      <p><strong>Avialable from</strong> <%= @tool.available_from %></p>
+      <p><strong>Available until</strong> <%= @tool.available_until %></p>
+      <p><strong>Collection address</strong> <%= @tool.address %></p>
+      <%= link_to 'Add Booking', new_tool_booking_path(@tool), class:"btn-primary"%>
+    </div>
+  </div>
+</div>
