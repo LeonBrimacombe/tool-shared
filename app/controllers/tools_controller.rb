@@ -18,6 +18,10 @@ class ToolsController < ApplicationController
     end
   end
 
+  def listing
+    @tools = current_user.tools
+  end
+
   def show
     @tool = Tool.find(params[:id])
   end

@@ -17,7 +17,11 @@
       <% @tools.each do |tool| %>
         <%= link_to tool_path(tool) do%>
           <div class="card-tool">
-             <%= cl_image_tag tool.images.first.key, height: 300, width: 400, crop: :fill %>
+            <% if tool.images.attached? %>
+              <%= cl_image_tag tool.images.first.key, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <i class="fa-solid fa-user"></i>
+            <% end %>
             <div class="card-tool-info">
               <div>
                 <h2><%= tool.name %></h2>
