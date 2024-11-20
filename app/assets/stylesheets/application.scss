@@ -24,14 +24,22 @@ h1 {
 }
 
 h2 {
-  font-size: 2vw;
+  font-size: 24pt;
 }
 
 h3 {
-  font-size: 1vw;
+  font-size: 20pt;
 }
 
 p {
   font-family: 'Roboto';
-  font-size: 1vw;
+  font-size: 14pt;
+}
+
+a {
+  text-decoration: none;
+}
+
+.backing {
+  background-color: $accent-orange;
 }
