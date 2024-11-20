@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
 
-    <img src="../../assets/images/tool-shared-logo.png" style="width: 10px;" alt="tool-shared-logo">
+    <img src="tool-shared-logo.png" style="width: 10px;" alt="tool-shared-logo">
 
     <h1>NEED A TOOL? WE'VE GOT YOU COVERED.</h1>
 
@@ -19,6 +19,8 @@
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.image.attached? %>
               <%= cl_image_tag current_user.image.key, class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <i class="fa-solid fa-user"></i>
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
