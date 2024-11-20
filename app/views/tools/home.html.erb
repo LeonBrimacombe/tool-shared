@@ -17,7 +17,7 @@
       <% @tools.each do |tool| %>
         <%= link_to tool_path(tool) do%>
           <div class="card-tool">
-            <img src="<%= tool.image %>" style="width:200px;" alt="<%= tool.name %>">
+             <%= cl_image_tag tool.images.first.key, height: 300, width: 400, crop: :fill %>
             <div class="card-tool-info">
               <div>
                 <h2><%= tool.name %></h2>
