@@ -1,19 +1,33 @@
-<h1>Your bookings</h1>
+<h1>Current bookings</h1>
 
-<div class="container">
-  <div class="cards">
-    <% @bookings.each do |booking| %>
-    <div class="card">
-      <h5><%= booking.tool.name.upcase %> Booking</h5>
-      <% booking.tool.images.each do |image| %>
+<div class="d-flex container">
+ <div class="backing">
+    <% if @bookings.empty? %>
+      <p>No current bookings available</p>
+    <% else %>
+      <% @bookings.each do |booking| %>
+        <div class="card-booking">
+         <% booking.tool.images.each do |image| %>
         <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
       <% end %> <br>
-      Start date: <%= booking.start_date %> <br>
-      End date: <%= booking.end_date %> <br>
-      Price: £<%= booking.price %> per hour <br>
-      <%= link_to "View booking", tool_booking_path(booking.tool_id, booking.id) %> <br>
-      <%= link_to "Edit booking", edit_tool_booking_path(booking.tool_id, booking.id) %> <br>
-    </div>
+          <div class="card-booking-info">
+            Start date: <%= booking.start_date %>
+            End date: <%= booking.end_date %>
+            Price: £<%= booking.tool.price %> per hour
+            <i class="fa-solid fa-location-pin location"></i><%= booking.tool.address %>
+            <%= link_to "View booking", tool_booking_path(booking.tool_id, booking.id), class:"btn-primary-sm"%>
+            <%= link_to "Edit booking", edit_tool_booking_path(booking.tool_id, booking.id), class:"btn-primary-sm" %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
+  </div>
+  <div class="more-listings">
+
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
