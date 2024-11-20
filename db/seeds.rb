@@ -40,7 +40,7 @@ test_user = User.new(
 )
 test_user.save
 
-10.times do
+3.times do
   user = User.new(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
@@ -78,7 +78,7 @@ categories = [
   "Hand Tools"
 ]
 
-20.times do
+5.times do
   tool = Tool.new(
     name: Faker::Appliance.equipment,
     description: Faker::Appliance.brand,
@@ -126,7 +126,7 @@ Booking.destroy_all
 
 puts "Seeding bookings DB"
 
-20.times do
+5.times do
   booking = Booking.new(
     start_date: (Time.now + 2),
     end_date: (Time.now + 4),
