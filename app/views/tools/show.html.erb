@@ -3,6 +3,7 @@
 <div class="container backing">
   <div class="card-tool">
     <h1><%= @tool.name %></h1>
+    <p>Listed by <strong><%= @tool.user.username %></strong></p>
     <img src="<%= @tool.image %>" style="width:500px;" alt="<%= @tool.name %>">
     <div class="card-tool-info">
       <p><strong>Category</strong> <%= @tool.category %></p>
