@@ -8,7 +8,9 @@
     <% @tools.each do |tool| %>
       <%= link_to tool_path(tool) do%>
         <div class="card">
-          <img src="<%= tool.image %>" style="width:200px;" alt="<%= tool.name %>">
+          <% tool.images.each do |image| %>
+            <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
           <%= tool.name %> <br>
           £<%= tool.price %> per hour <br>
           <%= tool.address %> <br>

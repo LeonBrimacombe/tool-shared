@@ -13,7 +13,7 @@
 # 1) Import required depend
 
 require "open-uri"
-require "nokogiri"
+# require "nokogiri"
 require "faker"
 
 # 2) Prepare tags and import, then parse file into results array.
@@ -36,7 +36,6 @@ puts "Seeding user DB"
 test_user = User.new(
   email: "test@test.com",
   password: "123456",
-  image: Faker::Avatar.image,
   username: Faker::Internet.user_name
 )
 test_user.save
@@ -45,27 +44,26 @@ test_user.save
   user = User.new(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
-    image: Faker::Avatar.image,
     username: Faker::Internet.user_name
   )
   user.save
+end
+
+User.all.each do |user|
+  profile_url = "https://res.cloudinary.com/dn2pd6off/image/upload/v1732101103/DALL_E_2024-11-20_11.05.49_-_A_square_2D_cartoonish_illustration_of_a_robot_handyman_in_a_black_and_orange_theme._The_robot_has_a_friendly_and_playful_design_with_a_simple_smiley_-3_fna7rh.jpg"
+  user.image.attach(
+    io: URI.open(profile_url),
+    filename: "profile.jpg",
+    content_type: "image/jpeg"
+  )
+  user.save!
 end
 
 puts "Users seeded!"
 
 Tool.destroy_all
 puts "Cleaning tools DB"
-
-puts "Seeding user DB"
-
-url = "https://www.productionequipment.com/hand-tools/tradesmans-tools.html"
-
-html_file = URI.parse(url).read
-html_doc = Nokogiri::HTML.parse(html_file)
-
-tool_images = html_doc.search(".product-image-photo").map do |element|
-  element.attribute("src").value
-end
+puts "Seeding tools DB"
 
 categories = [
   "Batteries, Chargers and Power Supplies",
@@ -77,8 +75,8 @@ categories = [
   "Storage",
   "Personal Protective Equipment",
   "Heated Work Wear and Clothing",
-  "Hand Tools"]
-
+  "Hand Tools"
+]
 
 20.times do
   tool = Tool.new(
@@ -88,7 +86,6 @@ categories = [
     available_from: Time.now,
     available_until: (Time.now + 1),
     user: User.all.sample,
-    image: tool_images.sample,
     address: Faker::Address.street_address,
     category: categories.sample
   )
@@ -103,11 +100,24 @@ test_tool = Tool.new(
   available_from: Time.now,
   available_until: (Time.now + 1),
   user: test_user,
-  image: tool_images.sample,
   address: Faker::Address.street_address,
   category: categories.sample
 )
 test_tool.save
+
+Tool.all.each do |tool|
+  tools_urls = [
+    "https://res.cloudinary.com/dn2pd6off/image/upload/v1732101103/DALL_E_2024-11-20_11.02.32_-_A_wide_aspect_ratio_2D_cartoonish_illustration_of_a_single_hammer_in_a_black_and_orange_theme._The_hammer_is_prominently_centered_featuring_a_playful-2_a1gkcn.jpg",
+    "https://res.cloudinary.com/dn2pd6off/image/upload/v1732101104/DALL_E_2024-11-20_11.04.39_-_A_wide_aspect_ratio_2D_cartoonish_illustration_of_a_single_lawnmower_in_a_black_and_orange_theme._The_lawnmower_is_prominently_centered_featuring_a_p-2_jnfoeq.jpg",
+    "https://res.cloudinary.com/dn2pd6off/image/upload/v1732101103/DALL_E_2024-11-20_11.03.10_-_A_wide_aspect_ratio_2D_cartoonish_illustration_of_a_single_chainsaw_in_a_black_and_orange_theme._The_chainsaw_is_prominently_centered_featuring_a_pla-2_mcjxzs.jpg"
+  ]
+  tool.images.attach(
+    io: URI.open(tools_urls.sample),
+    filename: "tool.jpg",
+    content_type: "image/jpeg"
+  )
+  tool.save!
+end
 
 puts "Seeded tools"
 
