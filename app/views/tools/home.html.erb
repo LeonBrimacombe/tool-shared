@@ -1,0 +1,34 @@
+<h1>Welcome to ToolShare From Home Page</h1>
+
+<div class="container search-bar">
+</div>
+
+<div class="d-flex mx-auto justify-content-center">
+  <%= link_to "Add A Tool", user_signed_in? ? new_tool_path : new_user_session_path, class:"btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="grid backing">
+    <% if @tools.empty? %>
+      <p>No tools available</p>
+    <% else %>
+      <% @tools.each do |tool| %>
+        <%= link_to tool_path(tool) do%>
+          <div class="card-tool">
+            <img src="<%= tool.image %>" style="width:200px;" alt="<%= tool.name %>">
+            <div class="card-tool-info">
+              <div>
+                <h2><%= tool.name %></h2>
+                <p><%= tool.description %></p>
+                <i class="fa-solid fa-location-pin location"></i> <%= tool.address %>
+              </div>
+              <div class="card-tool-pricing">
+                <h3>£<%= tool.price %></h3>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

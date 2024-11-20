@@ -1,4 +1,10 @@
 class ToolsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[home index show]
+
+  def home
+    @tools = Tool.order("RANDOM()").take(10)
+  end
+
   def index
     @tools = Tool.all
     @markers = @tools.geocoded.map do |tool|
