@@ -26,7 +26,7 @@
         <%= link_to tool_path(tool) do%>
           <div class="card-tool">
             <% if tool.images.attached? %>
-              <%= cl_image_tag tool.images.first.key, class: "avatar", alt: "dropdown menu" %>
+              <%= cl_image_tag tool.images.first.key %>
             <% else %>
               <i class="fa-solid fa-user"></i>
             <% end %>
