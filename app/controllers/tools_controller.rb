@@ -41,6 +41,30 @@ class ToolsController < ApplicationController
     end
   end
 
+  def edit
+    @tool = Tool.find(params[:id])
+  end
+
+  def update
+    @tool = Tool.find(params[:id])
+
+    if @tool.update(tool_params)
+      redirect_to tool_path(@tool)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @tool = Tool.find(params[:id])
+
+    if @tool.destroy
+      redirect_to user_listing_path(current_user)
+    else
+      render status: :unprocessable_entity
+    end
+  end
+
   private
 
   def tool_params
