@@ -35,7 +35,7 @@ h3 {
 
 p {
   font-family: 'Roboto';
-  font-size: 14pt;
+  font-size: 10pt;
 }
 
 a {
@@ -46,21 +46,4 @@ a {
   background-color: $accent-orange;
   border-radius: 16px;
   padding: 16px;
-}
-
-.btn-primary {
-  background-color: black;
-  border-radius: 24px;
-  padding: 8px 64px;
-  margin-bottom: 16px;
-  color: white
-}
-
-.btn-primary-sm {
-  background-color: black;
-  border-radius: 24px;
-  padding: 8px 32px;
-  margin-bottom: 16px;
-  font-size: 10pt;
-  color: white;
 }

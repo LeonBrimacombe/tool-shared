@@ -11,6 +11,8 @@
   <%= link_to "Add A Tool", user_signed_in? ? new_tool_path : new_user_session_path, class:"btn-primary" %>
 </div>
 
+  <%= turbo_page_requires_reload %>
+
 <div class="d-flex container">
   <div class="grid backing">
     <% if @tools.empty? %>
