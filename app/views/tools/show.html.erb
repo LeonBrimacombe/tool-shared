@@ -20,6 +20,7 @@
           <%= link_to 'Make Booking', new_tool_booking_path(@tool), class:"btn-primary"%>
         <% end %>
       </div>
+      <%= link_to 'Add Booking', new_tool_booking_path(@tool), class:"btn-primary", data: { turbo_frame: "modal" } %>
     </div>
   </div>
 </div>

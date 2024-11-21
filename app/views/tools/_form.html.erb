@@ -1,11 +1,14 @@
 <div class="container">
   <%= simple_form_for @tool do |f| %>
     <%= f.input :name, as: :string %>
+    <%= f.collection_select :category, Tool::CATEGORIES, :to_s, :to_s,
+      :prompt => "Select tool category"
+    %>
     <%= f.input :description, as: :text %>
     <%= f.input :price, as: :string %>
-    <%= f.input :address, as: :string %>
-    <%= f.collection_select :category, Tool::CATEGORIES, :to_s, :to_s,
-        :include_blank => true
+    <%= f.input :address, input_html: {data: {"..."}, class: "d-none"}
+      input_html: {data: {address_autocomplete_target: "address"}},
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
     %>
     <%= f.input :available_from,
               as: :string,
@@ -16,6 +19,9 @@
     <%= f.input :images, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Add Tool",class: 'btn-submit mt-3'%>
   <% end %>
-  <br>
+  <%= link_to "Cancel", tools_path, data: {
+  controller: "modals",
+  action: "modals#close"
+  }, class: "cancel-button" %>
 
 </div>

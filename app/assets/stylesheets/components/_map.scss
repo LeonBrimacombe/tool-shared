@@ -5,4 +5,13 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  border-radius: 10px;
+}
+
+.container {
+  display: grid;
+  /* position: sticky; */
+  grid-template-columns: 60% 40%;
+  grid-gap: 16px;
+  border-radius: 10px;
 }
