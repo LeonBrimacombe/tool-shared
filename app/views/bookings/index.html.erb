@@ -2,7 +2,10 @@
 
 <div class="d-flex container">
  <div class="backing">
-    <%= link_to "Home", root_path, class: "btn-primary" %>
+    <div class="d-flex justify-content-evenly">
+      <%= link_to "Home", root_path, class: "btn-primary" %>
+      <%= link_to 'My listings', user_listing_path, class:"btn-primary"%>
+    </div>
     <% if @bookings.empty? %>
       <p>No current bookings available</p>
     <% else %>
