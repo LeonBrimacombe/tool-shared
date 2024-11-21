@@ -1,5 +1,3 @@
- <%= link_to "Back to tools", tools_path %>
-
 <div class="container backing">
   <div class="card-tool">
     <h1><%= @tool.name %></h1>
@@ -14,7 +12,10 @@
       <p><strong>Avialable from</strong> <%= @tool.available_from %></p>
       <p><strong>Available until</strong> <%= @tool.available_until %></p>
       <p><strong>Collection address</strong> <%= @tool.address %></p>
-      <%= link_to 'Add Booking', new_tool_booking_path(@tool), class:"btn-primary"%>
+      <div class="d-flex justify-content-between">
+         <%= link_to "Back to listings", root_path, class: "btn-primary" %>
+         <%= link_to 'Make Booking', new_tool_booking_path(@tool), class:"btn-primary"%>
+      </div>
     </div>
   </div>
 </div>

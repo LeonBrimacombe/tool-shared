@@ -2,6 +2,7 @@
 
 <div class="d-flex container">
  <div class="backing">
+    <%= link_to "Home", root_path, class: "btn-primary" %>
     <% if @bookings.empty? %>
       <p>No current bookings available</p>
     <% else %>
