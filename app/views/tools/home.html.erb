@@ -20,7 +20,7 @@
             <% if tool.images.attached? %>
               <%= cl_image_tag tool.images.first.key %>
             <% else %>
-              <i class="fa-solid fa-user"></i>
+              <%= image_tag tool.image_url %>
             <% end %>
             <div class="card-tool-info">
               <div>
