@@ -32,7 +32,9 @@
           <div class="card-tool">
             <% if tool.images.attached? %>
               <%= cl_image_tag tool.images.first.key %>
-             <% else %>
+            <% elsif tool.image_url.present? %>
+              <%= image_tag tool.image_url %>
+            <%else%>
               <i class="fa-solid fa-user"></i>
             <% end %>
             <div class="card-tool-info">

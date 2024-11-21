@@ -2,8 +2,12 @@
   <div class="card-tool">
     <h1><%= @tool.name %></h1>
     <p>Listed by <strong><%= @tool.user.username %></strong></p>
-    <% @tool.images.each do |image| %>
-      <%= cl_image_tag image.key, height: 300, width: 400 %>
+    <% if @tool.images.attached? %>
+      <% @tool.images.each do |image| %>
+        <%= cl_image_tag image.key, height: 300, width: 400 %>
+      <% end %>
+    <% else %>
+      <%= image_tag @tool.image_url %>
     <% end %>
     <div class="card-tool-info">
       <p><strong>Category</strong> <%= @tool.category %></p>
