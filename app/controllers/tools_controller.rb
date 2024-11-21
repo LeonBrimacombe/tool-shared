@@ -3,16 +3,24 @@ class ToolsController < ApplicationController
 
   def home
     @tools = Tool.order("RANDOM()").take(10)
+
+    if params[:query].present?
+      @tools = @tools.where("name ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def index
     @tools = Tool.all
-    # @tools = Tool.geocoded
+
+    if params[:query].present?
+      @tools = @tools.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+
     @markers = @tools.geocoded.map do |tool|
       {
         lat: tool.latitude,
         lng: tool.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {tool: tool}),
+        info_window_html: render_to_string(partial: "info_window", locals: { tool: tool }),
         marker_html: render_to_string(partial: "marker")
       }
     end
@@ -64,6 +72,10 @@ class ToolsController < ApplicationController
       redirect_to user_listing_path(current_user)
 
   private
+
+  def all_tools
+
+  end
 
   def tool_params
     params.require(:tool).permit(
