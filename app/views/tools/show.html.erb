@@ -14,7 +14,7 @@
       <p><strong>Avialable from</strong> <%= @tool.available_from %></p>
       <p><strong>Available until</strong> <%= @tool.available_until %></p>
       <p><strong>Collection address</strong> <%= @tool.address %></p>
-      <%= link_to 'Add Booking', new_tool_booking_path(@tool), class:"btn-primary"%>
+      <%= link_to 'Add Booking', new_tool_booking_path(@tool), class:"btn-primary", data: { turbo_frame: "modal" } %>
     </div>
   </div>
 </div>

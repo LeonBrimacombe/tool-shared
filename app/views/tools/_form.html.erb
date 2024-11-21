@@ -1,12 +1,12 @@
 <div class="container">
   <%= simple_form_for @tool do |f| %>
     <%= f.input :name, as: :string %>
+    <%= f.collection_select :category, Tool::CATEGORIES, :to_s, :to_s,
+      :prompt => "Select tool category"
+    %>
     <%= f.input :description, as: :text %>
     <%= f.input :price, as: :string %>
     <%= f.input :address, as: :string %>
-    <%= f.collection_select :category, Tool::CATEGORIES, :to_s, :to_s,
-        :include_blank => true
-    %>
     <%= f.input :available_from,
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>

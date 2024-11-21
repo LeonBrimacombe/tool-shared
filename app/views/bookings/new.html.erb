@@ -1,8 +1,10 @@
-<div class="container backing">
-  <h1>New booking for <%= @tool.name.upcase %></h1>
-  <p><%= @tool.description %></p>
-  <p> Renting for <strong>£<%= @tool.price %> </strong></p>
-  <p><%= @tool.address %></p>
+<%= turbo_frame_tag "modal" do %>
+  <div class="turbo-popup">
+    <h1>New booking for <%= @tool.name.upcase %></h1>
+    <p><%= @tool.description %></p>
+    <p> Renting for <strong>£<%= @tool.price %> </strong></p>
+    <p><%= @tool.address %></p>
 
-  <%= render "form" %>
-</div>
+    <%= render "form" %>
+  </div>
+<% end %>
