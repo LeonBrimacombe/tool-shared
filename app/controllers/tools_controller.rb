@@ -49,7 +49,7 @@ class ToolsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def edit
     @tool = Tool.find(params[:id])
   end
@@ -70,12 +70,10 @@ class ToolsController < ApplicationController
     if @tool.destroy
       flash[:notice] = "Listing deleted"
       redirect_to user_listing_path(current_user)
+    end
+  end
 
   private
-
-  def all_tools
-
-  end
 
   def tool_params
     params.require(:tool).permit(
