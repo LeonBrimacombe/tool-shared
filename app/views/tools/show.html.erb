@@ -1,5 +1,3 @@
- <%= link_to "Back to tools", tools_path %>
-
 <div class="container backing">
   <div class="card-tool">
     <h1><%= @tool.name %></h1>
@@ -14,6 +12,14 @@
       <p><strong>Avialable from</strong> <%= @tool.available_from %></p>
       <p><strong>Available until</strong> <%= @tool.available_until %></p>
       <p><strong>Collection address</strong> <%= @tool.address %></p>
+      <div class="d-flex justify-content-between">
+         <%= link_to "Back to listings", root_path, class: "btn-primary" %>
+         <% if @tool.user_id == current_user.id %>
+            <%= link_to "Cancel listing", tool_path(@tool), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this listing?" }, class: "btn-primary" %>
+        <% else %>
+          <%= link_to 'Make Booking', new_tool_booking_path(@tool), class:"btn-primary"%>
+        <% end %>
+      </div>
       <%= link_to 'Add Booking', new_tool_booking_path(@tool), class:"btn-primary", data: { turbo_frame: "modal" } %>
     </div>
   </div>
