@@ -9,7 +9,7 @@
       <p><strong>Category</strong> <%= @tool.category %></p>
       <p><%= @tool.description %></p>
       <p><%= @tool.price %></p>
-      <p><strong>Avialable from</strong> <%= @tool.available_from %></p>
+      <p><strong>Available from</strong> <%= @tool.available_from %></p>
       <p><strong>Available until</strong> <%= @tool.available_until %></p>
       <p><strong>Collection address</strong> <%= @tool.address %></p>
       <div class="d-flex justify-content-between">
@@ -20,7 +20,10 @@
           <%= link_to 'Make Booking', new_tool_booking_path(@tool), class:"btn-primary"%>
         <% end %>
       </div>
-      <%= link_to 'Add Booking', new_tool_booking_path(@tool), class:"btn-primary", data: { turbo_frame: "modal" } %>
+      <div class="container d-flex gap-2">
+         <%= link_to 'Add Booking', new_tool_booking_path(@tool), class:"btn-primary", data: { turbo_frame: "modal" } %>
+        <%= link_to 'Edit Tool', edit_tool_path(@tool), class:"btn-primary"%>
+      </div>
     </div>
   </div>
 </div>

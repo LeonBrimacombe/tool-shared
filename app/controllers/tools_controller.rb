@@ -41,16 +41,27 @@ class ToolsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  
+  def edit
+    @tool = Tool.find(params[:id])
+  end
+
+  def update
+    @tool = Tool.find(params[:id])
+
+    if @tool.update(tool_params)
+      redirect_to tool_path(@tool)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   def destroy
     @tool = Tool.find(params[:id])
+
     if @tool.destroy
-      flash[:notice] = "Listing cancelled"
-      redirect_to user_listing_path
-    else
-      render status: :unprocessable_entity
-    end
-  end
+      flash[:notice] = "Listing deleted"
+      redirect_to user_listing_path(current_user)
 
   private
 
