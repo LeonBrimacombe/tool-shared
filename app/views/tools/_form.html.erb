@@ -16,6 +16,9 @@
     <%= f.input :images, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Add Tool",class: 'btn-submit mt-3'%>
   <% end %>
-  <br>
+  <%= link_to "Cancel", tools_path, data: {
+  controller: "modals",
+  action: "modals#close"
+  }, class: "cancel-button" %>
 
 </div>
