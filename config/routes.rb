@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :tools, only: %i[index show new create listing] do
-    resources :bookings
+  resources :tools, only: %i[index show new create listing destroy] do
+    resources :bookings, only: %i[new create edit update show]
   end
 
-  resources :bookings, only: %i[index show]
+  resources :bookings, only: %i[index show destroy]
 
   get "/user/listing", to: "tools#listing"
 end

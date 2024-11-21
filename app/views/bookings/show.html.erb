@@ -11,7 +11,8 @@
       <p>End date: <%= @booking.end_date %> </p>
       <p>Price: <strong>£<%= @booking.tool.price %></strong></p>
       <p><i class="fa-solid fa-location-pin location"></i> <%= @booking.tool.address %></p>
-      <%= link_to "Edit booking", edit_tool_booking_path(@booking.tool_id, @booking.id), class:"btn-primary-sm" %>
+      <%= link_to "Edit dates", edit_tool_booking_path(@booking.tool_id, @booking.id), class:"btn-primary-sm" %>
+      <%= link_to "Cancel booking", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your booking?" }, class: "btn-primary-sm" %>
     </div>
   </div>
   <%= link_to 'Back to bookings', bookings_path, class:"btn-primary-sm"%>

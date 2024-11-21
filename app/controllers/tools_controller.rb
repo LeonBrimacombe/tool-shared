@@ -41,6 +41,13 @@ class ToolsController < ApplicationController
     end
   end
 
+  def destroy
+    @tool = Tool.find(params[:id])
+    @tool.destroy
+    flash[:notice] = "Listing deleted successfully."
+    redirect_to user_listing_path
+  end
+
   private
 
   def tool_params
