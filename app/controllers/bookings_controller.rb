@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save!
       redirect_to tool_booking_path(@tool, @booking)
+      flash[:notice] = "Booking successful :)"
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,9 +39,12 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destroy
-    flash[:notice] = "Booking deleted successfully."
-    redirect_to bookings_path
+    if @booking.destroy
+      flash[:notice] = "Booking cancelled"
+      redirect_to bookings_path
+    else
+      render status: :unprocessable_entity
+    end
   end
 
   private

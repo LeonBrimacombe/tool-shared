@@ -36,6 +36,7 @@ class ToolsController < ApplicationController
 
     if @tool.save!
       redirect_to tool_path(@tool)
+      flash[:notice] = "Listing successful :)"
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,9 +44,12 @@ class ToolsController < ApplicationController
 
   def destroy
     @tool = Tool.find(params[:id])
-    @tool.destroy
-    flash[:notice] = "Listing deleted successfully."
-    redirect_to user_listing_path
+    if @tool.destroy
+      flash[:notice] = "Listing cancelled"
+      redirect_to user_listing_path
+    else
+      render status: :unprocessable_entity
+    end
   end
 
   private
