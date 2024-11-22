@@ -1,7 +1,4 @@
 
-<h1>Welcome to ToolShare</h1>
-
-
 <!-- stand in div for search bar, to be removed -->
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
@@ -9,17 +6,17 @@
       <%= text_field_tag :query,
             params[:query],
             class: "form-control me-2",
-            placeholder: "tool name"
+            placeholder: "Enter a tool..."
         %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control me-2",
-            placeholder: "category"
+            placeholder: "Select a category..."
         %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control me-2",
-            placeholder: "location"
+            placeholder: "Search a location..."
         %>
       <%= submit_tag "Search", name: "", class:"search btn-primary" %>
     <% end %>

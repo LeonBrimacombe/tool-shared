@@ -1,7 +1,7 @@
 <div class="banner" style="margin-top:-20px; padding:50px; width:100%; height:400px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://hi-spec.com/cdn/shop/articles/tendsupplies-empower-workshop-with-tend-hand-tools_800x800.jpg);">
   <div class="container mt-5">
     <div class="home-text">
-      <h1>Tool De Share</h1>
+      <h1>Tool Shared</h1>
       <h3>Get paid for your stashed tools</h3>
     </div>
   </div>
@@ -12,17 +12,17 @@
       <%= text_field_tag :query,
             params[:query],
             class: "form-control me-2",
-            placeholder: "tool name"
+            placeholder: "Enter a tool..."
         %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control me-2",
-            placeholder: "category"
+            placeholder: "Select a category..."
         %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control me-2",
-            placeholder: "location"
+            placeholder: "Search a location..."
         %>
       <%= submit_tag "Search", name: "", class: "search btn-primary" %>
     <% end %>
