@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'bookings/new'
   devise_for :users
   root to: "tools#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,12 +9,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  
+
   resources :tools, only: %i[index show new create edit listing update destroy] do
-    resources :bookings, only: %i[new create edit update]
+    resources :bookings, only: %i[new create edit update show]
   end
 
-  resources :bookings, only: %i[index show destroy]
+  resources :bookings, only: %i[index destroy]
 
   get "/user/listing", to: "tools#listing"
 end

@@ -11,6 +11,7 @@ class Tool < ApplicationRecord
   validates :price, presence: true
 
   CATEGORIES = [
+    'Select a tool',
     'Batteries',
     'Chargers and Power Supplies',
     'Power Tools',
