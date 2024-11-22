@@ -1,13 +1,4 @@
-<div class="d-flex mx-auto justify-content-center">
-  <%= link_to "Add Listing", new_tool_path, data: { turbo_frame: "modal" } , class:"btn-primary" %>
-</div>
-<div class="d-flex container">
-  <div class="backing">
-    <div class="d-flex mx-auto justify-content-evenly">
-      <%= link_to "Home", root_path, class: "btn-primary" %>
-      <%= link_to "Add Listing", new_tool_path, class:"btn-primary" %>
-    </div>
-    <div class="grid backing">
+   <div class="grid backing">
       <% if @tools.empty? %>
         <p>No tools available</p>
       <% else %>
@@ -32,12 +23,3 @@
         <% end %>
       <% end %>
     </div>
-   </div>
-  <div class="map">
-    <div style="width: 100%; height: 600px; border-radius: 10px; background-color: black;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-  </div>
-</div>
