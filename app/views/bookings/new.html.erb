@@ -2,7 +2,7 @@
 <div class="turbo-popup">
   <h1>New booking for <%= @tool.name.upcase %></h1>
   <p><%= @tool.description %></p>
-  <p> Renting for <strong>£<%= @tool.price %> </strong></p>
-  <p><%= @tool.address %></p>
+  <h3> Price / Day: <strong><%= format_price(@tool.price) %> </strong></h3>
+  <h5><%= @tool.address %></h5>
   <%= render "form" %>
 </div>
