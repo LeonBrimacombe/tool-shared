@@ -1,7 +1,6 @@
-<h1>Current bookings</h1>
-
 <div class="d-flex container">
  <div class="backing">
+  <h2>Current bookings</h2>
     <div class="d-flex justify-content-evenly">
       <%= link_to "Home", root_path, class: "btn-primary" %>
       <%= link_to 'My listings', user_listing_path, class:"btn-primary"%>
@@ -11,9 +10,14 @@
     <% else %>
       <% @bookings.each do |booking| %>
         <div class="card-booking">
-         <% booking.tool.images.each do |image| %>
-        <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
-      <% end %> <br>
+          <% if booking.tool.images.attached? %>
+            <%= cl_image_tag booking.tool.images.first.key %>
+          <% elsif booking.tool.image_url.present? %>
+            <%= image_tag booking.tool.image_url %>
+          <%else%>
+            <i class="fa-solid fa-user"></i>
+          <% end %>
+
           <div class="card-booking-info">
             Start date: <%= booking.start_date %>
             End date: <%= booking.end_date %>
@@ -26,12 +30,40 @@
       <% end %>
     <% end %>
   </div>
-  <div class="more-listings">
 
-    <div style="width: 100%; height: 600px;"
+  <div class="more-listings">
+    <div class="search-bar d-flex align-items-center">
+      <h3 class="ms-4">Similar tools in your area</h3>
+    </div>
+    <div class="map" style="height: 600px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="grid">
+      <% @tools.each do |tool| %>
+        <%= link_to tool_path(tool) do%>
+          <div class="card-tool">
+            <% if tool.images.attached? %>
+              <%= cl_image_tag tool.images.first.key %>
+            <% elsif tool.image_url.present? %>
+              <%= image_tag tool.image_url %>
+            <%else%>
+              <i class="fa-solid fa-user"></i>
+            <% end %>
+            <div class="card-tool-info">
+              <div>
+                <h2><%= tool.name %></h2>
+                <p><%= tool.description %></p>
+                <i class="fa-solid fa-location-pin location"></i> <%= tool.address %>
+              </div>
+              <div class="card-tool-pricing">
+                <h3>£<%= tool.price %></h3>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

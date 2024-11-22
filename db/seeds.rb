@@ -72,18 +72,17 @@ categories = [
 
 seed_tools = [
   {
-  name: "High Voltage Holiday Detector",
-  description: "High voltage holiday detector
-    800 to 35,000 volts in 1 instrument
-    Includes one electrode -
-    Electrode options: full circle spring",
+  name: "Reciprocating saw",
+  description: "MAKITA DJR186Z
+    18v Reciprocating saw, with variable speed.
+    Depth of cut: 255mm, can rent with cardboard box",
   price: 2000,
   available_from: Date.today,
   available_until: Date.today + 10,
   user: User.all.sample,
   address: "24 Betsham House, London Bridge",
-  category: "Instruments",
-  image_url: "https://imagedelivery.net/ePR8PyKf84wPHx7_RYmEag/2ba2736a-336a-43cf-a70e-46195a015e00/86"
+  category: "Power Tools",
+  image_url: "https://www.protoolreviews.com/wp-content/uploads/2021/03/Skil-PWR-Core-20-Compact-Reciprocating-Saw04-800x534.jpg"
   },
   {
   name: "STIHL Chainsaw",
@@ -106,20 +105,9 @@ seed_tools = [
   available_from: Date.today,
   available_until: Date.today + 10,
   user: User.all.sample,
-  address: "139 Rushton House, Stockwell",
+  address: "139 Rushton House, London",
   category: "Personal Protective Equipment",
   image_url: "https://5.imimg.com/data5/SELLER/Default/2024/3/399481305/FV/EI/QM/214718061/auto-darkening-helmet-1.jpeg"
-  },
-  {
-  name: "Sledge Hammer",
-  description: "Roughneck Sledge Hammer Fibreglass Handle 3.6kg (8lb)",
-  price: 2000,
-  available_from: Date.today,
-  available_until: Date.today + 10,
-  user: User.all.sample,
-  address: "34 Stompond Lane, Walton-on-Thames",
-  category: "Hand Tools",
-  image_url: "https://onsitehire.com/cdn/shop/products/Large-Rubber-Sledgehammer-3_5ae84dec-bdd8-42d6-8a06-bf481593bdb4_1024x1024@2x.jpg?v=1553531141"
   },
   {
   name: "Pressure Washer",
@@ -129,7 +117,7 @@ seed_tools = [
   available_until: Date.today + 10,
   user: User.all.sample,
   address: "60 Marina Place, Hampton Wick",
-  category: "Power Tools",
+  category: "Outdoor Power Equipment",
   image_url: "https://cdn.thewirecutter.com/wp-content/media/2020/09/pressurewasher2020-2048-0698.jpg?auto=webp&quality=75&width=1024"
   },
   {
@@ -141,7 +129,7 @@ seed_tools = [
   user: User.all.sample,
   address: "139 Kingsland Road, Shoreditch",
   category: "Power Tools",
-  image_url: "https://imagedelivery.net/ePR8PyKf84wPHx7_RYmEag/5fe73bed-5828-4b98-5df4-d6737b3ee400/86"
+  image_url: "https://www.familyhandyman.com/wp-content/uploads/2024/02/FHMVS24_MR_01_04_24_AngleGrinder_2_How-to-Use-an-Angle-Grinder_FT.jpg"
   },
   {
   name: "Mitre Saw",
@@ -154,6 +142,50 @@ seed_tools = [
   category: "Power Tools",
   image_url: "https://static.thcdn.com/productimg/960/960/14928225-4205170882099806.jpg"
   },
+  {
+  name: "Capentry Saw",
+  description: "SUIZAN Japanese Pull Saw Hand Saw 150mm Dozuki Dovetail Saw Tenon Saw for Ultra Fine Cross Cut Rip Cut Angle Cut Woodworking Tools",
+  price: 1500,
+  available_from: Date.today,
+  available_until: Date.today + 10,
+  user: User.all.sample,
+  address: "Old Compton St, London W1D 5JL",
+  category: "Hand Tools",
+  image_url: "https://i.shgcdn.com/7263803d-9d73-4452-8b2e-f0ef78c23dac/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+  },
+  {
+  name: "Belt Sander",
+  description: "Makita M9400 4 inch Electric Belt Sander 240V. Robust and reliable belt sander designed for competent home users, apprentices and part-time tradespeople.",
+  price: 7600,
+  available_from: Date.today + 5,
+  available_until: Date.today + 25,
+  user: User.all.sample,
+  address: "Cannon Bridge House, 1 Cousin Lane, London EC4R 3TE",
+  category: "Hand Tools",
+  image_url: "https://www.heamar.co.uk/media/.renditions/wysiwyg/1_8.jpg"
+  },
+  {
+  name: "Circular Saw",
+  description: "Makita DSS611Z 18V Li-Ion LXT 165mm Circular Saw - Depth of cut at 90 degrees 57mm",
+  price: 4100,
+  available_from: Date.today + 5,
+  available_until: Date.today + 25,
+  user: User.all.sample,
+  address: "Cannon Bridge House, 1 Cousin Lane, London EC4R 3TE",
+  category: "Power Tools",
+  image_url: "https://styla-prod-us.imgix.net/92314b9e-c171-46ba-b234-64ae64285741/1680693193142_5d8734d6-4fa4-4754-a41f-82e6bdf6be2c?auto=format%2Ccompress&w=1280&h=854&fit=crop&crop=faces%2Cedges&q=25"
+  },
+  {
+  name: "Jigsaw",
+  description: "DeWalt DCS331N 18V Li-Ion XR Cordless Jigsaw - Bare",
+  price: 7600,
+  available_from: Date.today + 5,
+  available_until: Date.today + 25,
+  user: User.all.sample,
+  address: "Cannon Bridge House, 1 Cousin Lane, London EC4R 3TE",
+  category: "Power Tools",
+  image_url: "https://www.heamar.co.uk/media/.renditions/wysiwyg/1_8.jpg"
+  }
 ]
 
 seed_tools.each do |tool|
