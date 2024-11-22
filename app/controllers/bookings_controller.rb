@@ -1,10 +1,28 @@
 class BookingsController < ApplicationController
   def index
     @bookings = current_user.bookings
+    @tools = Tool.limit(2)
+    @markers = @tools.geocoded.map do |tool|
+      {
+        lat: tool.latitude,
+        lng: tool.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { tool: tool }),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
     @booking = Booking.find(params[:id])
+    @tools = Tool.limit(2)
+    @markers = @booking.tool.geocoded.map do |tool|
+      {
+        lat: tool.latitude,
+        lng: tool.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { tool: tool }),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def new

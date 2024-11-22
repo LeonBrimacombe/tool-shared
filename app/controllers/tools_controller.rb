@@ -32,6 +32,13 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
+    @marker =
+      {
+        lat: @tool.latitude,
+        lng: @tool.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { tool: @tool }),
+        marker_html: render_to_string(partial: "marker")
+      }
   end
 
   def new

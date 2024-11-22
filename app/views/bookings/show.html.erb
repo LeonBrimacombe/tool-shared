@@ -3,7 +3,12 @@
   <div class="card-booking">
     <% if @booking.tool.images.attached? %>
       <%= cl_image_tag @booking.tool.images.first.key %>
+    <% elsif @booking.tool.image_url.present? %>
+      <%= image_tag @booking.tool.image_url %>
+    <%else%>
+      <i class="fa-solid fa-user"></i>
     <% end %>
+
     <div class="card-booking-info">
       <h3><%= @booking.tool.name%></h3>
       <p>listed by <strong><%= @booking.tool.user.username %></strong></p>
