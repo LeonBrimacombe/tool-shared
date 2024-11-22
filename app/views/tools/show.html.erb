@@ -17,7 +17,7 @@
 
       <!-- Tool Information -->
       <div class="tool-description">
-        <h2><%= @tool.name %> <span class="tool-price">£<%= @tool.price %></span></h2>
+        <h2><%= @tool.name %> <span class="tool-price"><%= format_price(@tool.price) %></span></h2>
         <p class="secondary-heading">Description</p>
         <%= @tool.description %>
 

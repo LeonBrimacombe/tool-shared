@@ -17,7 +17,7 @@
 
       <!-- Tool Information -->
       <div class="tool-description">
-        <h2><%= @booking.tool.name %> <span class="tool-price">£<%= @booking.tool.price %></span></h2>
+        <h2><%= @booking.tool.name %> <span class="tool-price">Total price: £<%= booking_price(@booking) %></span></h2>
         <p class="secondary-heading">Description</p>
         <%= @booking.tool.description %>
 
