@@ -1,3 +1,16 @@
 // Import page-specific CSS files here.
 @import "home";
 // @import "show";
+
+
+.form-control {
+  height: 48px;
+  text-align: center;
+  border: 8px;
+}
+
+.search {
+  border: none;
+  height: 51px;
+  border-radius: 15px;
+}

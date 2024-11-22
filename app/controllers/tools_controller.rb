@@ -5,7 +5,8 @@ class ToolsController < ApplicationController
     @tools = Tool.order("RANDOM()").take(10)
 
     if params[:query].present?
-      @tools = @tools.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_subquery = "name ILIKE :query OR category ILIKE :query OR address ILIKE :query"
+      @tools = @tools.where(sql_subquery, query: "%#{params[:query]}%")
     end
   end
 
@@ -13,7 +14,8 @@ class ToolsController < ApplicationController
     @tools = Tool.all
 
     if params[:query].present?
-      @tools = @tools.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_subquery = "name ILIKE :query OR category ILIKE :query OR address ILIKE :query"
+      @tools = @tools.where(sql_subquery, query: "%#{params[:query]}%")
     end
 
     @markers = @tools.geocoded.map do |tool|
@@ -32,6 +34,13 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
+    @marker =
+      {
+        lat: @tool.latitude,
+        lng: @tool.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { tool: @tool }),
+        marker_html: render_to_string(partial: "marker")
+      }
   end
 
   def new

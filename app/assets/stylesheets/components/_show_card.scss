@@ -18,9 +18,9 @@
     width: 65%; // Left section width
     background-color: #ff9f1c; // Orange background
     padding: 16px;
-    border-radius: 20px;
+    border-radius: 16px;
     margin-right: 20px;
-    padding-top: 20px;
+    padding-top: 40px;
 
     #tool-title {
       font-size: 2rem;
@@ -42,6 +42,15 @@
 
       .tool-image {
         flex: 2;
+
+        img {
+          width: 400px;
+          border-radius: 16px;
+        };
+
+        .image {
+          object-fit: cover;
+        };
 
         .tool-image-tag {
           border-radius: 5px;
@@ -83,7 +92,7 @@
           .collection-address,
           .collection-time {
             flex: 1;
-            text-align: center;
+            text-align: start;
 
             i {
               font-size: 1.5rem;
