@@ -10,3 +10,26 @@
   height: 51px;
   border-radius: 15px;
 }
+
+.home-text {
+  width: 100%;
+  overflow: hidden;
+  margin-left: 500px;
+  max-width: 500px;
+  color: white;
+}
+
+.home-text h1 {
+  animation: 2s home-text 2s forwards;
+    transform:translateX(-100%);
+}
+.home-text h3 {
+  animation: 2s home-text 2s forwards;
+    transform:translateX(100%);
+}
+
+@keyframes home-text {
+  to {
+    transform:translateX(0);
+  }
+}
