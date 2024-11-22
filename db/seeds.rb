@@ -149,7 +149,7 @@ seed_tools = [
   available_from: Date.today,
   available_until: Date.today + 10,
   user: User.all.sample,
-  address: "Old Compton St, London W1D 5JL",
+  address: "Old Compton St, London",
   category: "Hand Tools",
   image_url: "https://i.shgcdn.com/7263803d-9d73-4452-8b2e-f0ef78c23dac/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
   },
@@ -160,7 +160,7 @@ seed_tools = [
   available_from: Date.today + 5,
   available_until: Date.today + 25,
   user: User.all.sample,
-  address: "Cannon Bridge House, 1 Cousin Lane, London EC4R 3TE",
+  address: "889 Victoria Street, London",
   category: "Hand Tools",
   image_url: "https://www.heamar.co.uk/media/.renditions/wysiwyg/1_8.jpg"
   },
@@ -171,7 +171,7 @@ seed_tools = [
   available_from: Date.today + 5,
   available_until: Date.today + 25,
   user: User.all.sample,
-  address: "Cannon Bridge House, 1 Cousin Lane, London EC4R 3TE",
+  address: "854 Albert Road, London",
   category: "Power Tools",
   image_url: "https://styla-prod-us.imgix.net/92314b9e-c171-46ba-b234-64ae64285741/1680693193142_5d8734d6-4fa4-4754-a41f-82e6bdf6be2c?auto=format%2Ccompress&w=1280&h=854&fit=crop&crop=faces%2Cedges&q=25"
   },
@@ -182,7 +182,7 @@ seed_tools = [
   available_from: Date.today + 5,
   available_until: Date.today + 25,
   user: User.all.sample,
-  address: "Cannon Bridge House, 1 Cousin Lane, London EC4R 3TE",
+  address: "1 Cousin Lane, London",
   category: "Power Tools",
   image_url: "https://www.heamar.co.uk/media/.renditions/wysiwyg/1_8.jpg"
   }

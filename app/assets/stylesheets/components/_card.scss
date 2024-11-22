@@ -33,6 +33,13 @@
   }
 };
 
+#index-desc {
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .card-booking {
   overflow: hidden;
   height: 250px;
