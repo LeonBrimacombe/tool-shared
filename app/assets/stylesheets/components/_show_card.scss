@@ -38,7 +38,7 @@
       display: flex;
       background-color: #f4f4f4;
       border-radius: 16px;
-      position: relative;
+      // position: relative;
 
       .tool-image {
         flex: 2;
@@ -74,9 +74,11 @@
         .collection-info {
           display: flex;
           justify-content: space-between;
+          margin: 0 auto;
           margin-top: 10px;
-          position: absolute;
-          bottom: 20px; // Distance from the top of the container
+          align-self: flex-end;
+          // position: absolute;
+          // bottom: 20px; // Distance from the top of the container
 
           .collection-address,
           .collection-time {

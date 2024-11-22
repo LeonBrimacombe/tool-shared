@@ -16,6 +16,7 @@
         <h2><%= @tool.name %> <span class="tool-price">£<%= @tool.price %></span></h2>
         <p class="secondary-heading">Description</p>
         <%= @tool.description %>
+
         <!-- Collection Info -->
         <div class="collection-info">
           <div class="collection-address">
@@ -47,11 +48,9 @@
 
   <!-- Right Section: Map -->
   <div class="tool-map">
-     <div class="tool-map">
-    <div style="width: 100%; height: 600px; border-radius: 10px; background-color: black;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+    <div style=" width:100%; height:100%; object-fit:cover; border-radius: 10px; background-color: black;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
