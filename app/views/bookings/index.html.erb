@@ -35,15 +35,15 @@
     <div class="search-bar d-flex align-items-center">
       <h3 class="ms-4">Similar tools in your area</h3>
     </div>
-    <div class="map" style="height: 600px;"
+    <div class="map" style="height: 300px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <div class="grid">
+    <div class="grid ms-2">
       <% @tools.each do |tool| %>
         <%= link_to tool_path(tool) do%>
-          <div class="card-tool">
+          <div class="card-tool" style="width: 250px; height:250px;">
             <% if tool.images.attached? %>
               <%= cl_image_tag tool.images.first.key %>
             <% elsif tool.image_url.present? %>
@@ -54,11 +54,6 @@
             <div class="card-tool-info">
               <div>
                 <h2><%= tool.name %></h2>
-                <p><%= tool.description %></p>
-                <i class="fa-solid fa-location-pin location"></i> <%= tool.address %>
-              </div>
-              <div class="card-tool-pricing">
-                <h3>£<%= tool.price %></h3>
               </div>
             </div>
           </div>

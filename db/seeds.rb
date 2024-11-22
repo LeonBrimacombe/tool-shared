@@ -94,7 +94,7 @@ seed_tools = [
   available_from: Date.today,
   available_until: Date.today + 10,
   user: User.all.sample,
-  address: "24 Glenshaw Mansion, Oval, SW9 0DS",
+  address: "24 Glenshaw Mansion, Oval, London",
   category: "Power Tools",
   image_url: "https://imagedelivery.net/ePR8PyKf84wPHx7_RYmEag/505f62d7-f989-436d-195d-74518a579200/86"
   },
@@ -160,7 +160,7 @@ seed_tools = [
   available_from: Date.today + 5,
   available_until: Date.today + 25,
   user: User.all.sample,
-  address: "889 Victoria Street, London",
+  address: "889 Victoria Street, London, UK",
   category: "Hand Tools",
   image_url: "https://www.heamar.co.uk/media/.renditions/wysiwyg/1_8.jpg"
   },
