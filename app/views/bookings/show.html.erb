@@ -1,24 +1,56 @@
-<div class="container backing">
-  <h2>Booking confirmation</h2>
-  <div class="card-booking">
-    <% if @booking.tool.images.attached? %>
-      <%= cl_image_tag @booking.tool.images.first.key %>
-    <% elsif @booking.tool.image_url.present? %>
-      <%= image_tag @booking.tool.image_url %>
-    <%else%>
-      <i class="fa-solid fa-user"></i>
-    <% end %>
+<div class="tool-show-container">
+  <!-- Left Section: Tool Details -->
+  <div class="tool-details">
+    <%= link_to "◀ Your bookings", bookings_path, class: "btn-primary-sml", id:"back-button" %>
+    <h1 id="tool-title">Booking #<%= @booking.id %></h1>
+    <div class="tool-info">
+      <!-- Tool Image -->
+      <div class="tool-image">
+        <% if @booking.tool.image_url? %>
+         <img src="<%= @booking.tool.image_url %>"  alt="<%@booking.tool.image_url%>">
+        <% elsif @booking.tool.images.attached? %>
+          <% @booking.tool.images.each do |image| %>
+            <%= cl_image_tag image.key, height: 300, width: 300, class: "tool-image-tag" %>
+          <% end %>
+        <% end %>
+      </div>
 
-    <div class="card-booking-info">
-      <h3><%= @booking.tool.name%></h3>
-      <p>listed by <strong><%= @booking.tool.user.username %></strong></p>
-      <p>Collection date: <strong><%= @booking.start_date %></strong></p>
-      <p>End date: <%= @booking.end_date %> </p>
-      <p>Price: <strong>£<%= @booking.tool.price %></strong></p>
-      <p><i class="fa-solid fa-location-pin location"></i> <%= @booking.tool.address %></p>
-      <%= link_to "Edit dates", edit_tool_booking_path(@booking.tool_id, @booking.id), class:"btn-primary-sm" %>
-      <%= link_to "Cancel booking", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your booking?" }, class: "btn-primary-sm" %>
+      <!-- Tool Information -->
+      <div class="tool-description">
+        <h2><%= @booking.tool.name %> <span class="tool-price">£<%= @booking.tool.price %></span></h2>
+        <p class="secondary-heading">Description</p>
+        <%= @booking.tool.description %>
+
+        <!-- Collection Info -->
+        <div class="collection-info">
+          <div class="collection-address">
+            <p class="secondary-heading">ADDRESS<p>
+            <%= @booking.tool.address %>
+          </div>
+          <div class="collection-time">
+            <p class="secondary-heading">Availability<br>
+            <p>
+              From: <%= @booking.start_date %><br>
+              Until: <%= @booking.end_date %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <%= link_to "Cancel booking", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking?" }, class: "btn-primary" %>
+        <%= link_to 'Edit dates', edit_tool_booking_path(@booking.tool, @booking), class:"btn-primary"%>
     </div>
   </div>
-  <%= link_to 'Back to bookings', bookings_path, class:"btn-primary-sm"%>
+
+  <!-- Right Section: Map -->
+  <div class="tool-map">
+    <div style=" width:100%; height:100%; object-fit:cover; border-radius: 10px; background-color: black;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>

@@ -35,8 +35,8 @@ class BookingsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     @booking.tool = @tool
     @booking.user = current_user
-    if @booking.save!
-      redirect_to tool_booking_path(@tool, @booking)
+    if @booking.save
+      redirect_to tool_booking_path(@booking.tool_id, @booking)
       flash[:notice] = "Booking successful :)"
     else
       render :new, status: :unprocessable_entity
