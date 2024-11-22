@@ -8,10 +8,20 @@
     <%= form_with url: tools_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
-            placeholder: "Type a keyword"
+            class: "form-control me-2",
+            placeholder: "tool name"
         %>
-      <%= submit_tag "Search", name: "", class: "btn-primary" %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control me-2",
+            placeholder: "category"
+        %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control me-2",
+            placeholder: "location"
+        %>
+      <%= submit_tag "Search", name: "", class:"search btn-primary" %>
     <% end %>
   </div>
 </div>
