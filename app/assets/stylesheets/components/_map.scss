@@ -10,9 +10,8 @@
 
 .map {
   display: grid;
-  position: sticky;
   grid-template-columns: 60% 40%;
   grid-gap: 16px;
   border-radius: 10px;
-  
+  margin-left: 16px;
 }
