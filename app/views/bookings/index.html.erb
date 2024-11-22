@@ -17,7 +17,7 @@
           <div class="card-booking-info">
             Start date: <%= booking.start_date %>
             End date: <%= booking.end_date %>
-            Price: £<%= booking.tool.price %> per hour
+            Price: <%= format_price(booking.tool.price)%>
             <i class="fa-solid fa-location-pin location"></i><%= booking.tool.address %>
             <%= link_to "View booking", tool_booking_path(booking.tool_id, booking.id), class:"btn-primary-sm"%>
             <%= link_to "Edit booking", edit_tool_booking_path(booking.tool_id, booking.id), class:"btn-primary-sm" %>
