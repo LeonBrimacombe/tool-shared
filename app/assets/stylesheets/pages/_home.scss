@@ -14,7 +14,11 @@
 .home-text {
   width: 100%;
   overflow: hidden;
+<<<<<<< Updated upstream
   margin-left: 500px;
+=======
+  margin-left: 300px;
+>>>>>>> Stashed changes
   max-width: 500px;
   color: white;
 }
@@ -23,10 +27,13 @@
   animation: 2s home-text 2s forwards;
     transform:translateX(-100%);
 }
+<<<<<<< Updated upstream
 .home-text h3 {
   animation: 2s home-text 2s forwards;
     transform:translateX(100%);
 }
+=======
+>>>>>>> Stashed changes
 
 @keyframes home-text {
   to {
